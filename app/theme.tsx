@@ -1,6 +1,6 @@
+// app/theme.tsx
 import { useEffect } from 'react';
 
-// 监听用户系统主题变化
 const useTheme = () => {
   useEffect(() => {
     const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
@@ -28,4 +28,5 @@ const useTheme = () => {
 };
 
 export default useTheme;
+
 
