@@ -1,15 +1,27 @@
 // app/page.tsx
-import React from 'react';
+import React, { useState } from 'react';
 
 export default function Page() {
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const handleSearch = () => {
+    // 在这里处理搜索逻辑
+    console.log('Searching for:', searchQuery);
+  };
+
   return (
     <div className="container">
       {/* 搜索栏部分 */}
       <div className="search-section">
         <h1>出海通AI商务助手</h1>
         <p>(越南版，其他国家陆续开放中)</p>
-        <input type="text" placeholder="请输入您的商务需求或合作机会，AI助手即刻为您服务！" />
-        <button>搜索</button>
+        <input
+          type="text"
+          placeholder="请输入您的商务需求或合作机会，AI助手即刻为您服务！"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
+        <button onClick={handleSearch}>搜索</button>
       </div>
 
       {/* 新添加的板块 */}
@@ -33,8 +45,6 @@ export default function Page() {
           </div>
         </div>
       </div>
-
-      {/* 其他页面内容 */}
     </div>
   );
 }
