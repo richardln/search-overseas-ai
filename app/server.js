@@ -1,32 +1,32 @@
+// server.js
 const express = require('express');
 const fs = require('fs');
 const app = express();
-const port = 3000;
+const PORT = 3000;
 
-// 解析 JSON 请求体
 app.use(express.json());
 
-// 读取数据
-const data = JSON.parse(fs.readFileSync('data.json', 'utf-8'));
+// 读取本地 JSON 数据
+const loadData = () => {
+  const rawData = fs.readFileSync('./data.json');
+  return JSON.parse(rawData);
+};
 
-// 根路由，测试服务器是否正常工作
-app.get('/', (req, res) => {
-  res.send('Server is running');
+// 简单搜索接口
+app.get('/search', (req, res) => {
+  const query = req.query.q?.toLowerCase() || '';
+  const data = loadData();
+
+  const results = data.filter(item =>
+    item.name.toLowerCase().includes(query) ||
+    item.type.toLowerCase().includes(query) ||
+    item.description.toLowerCase().includes(query)
+  );
+
+  res.json({ results });
 });
 
-// 搜索路由，根据用户请求过滤数据
-app.post('/search', (req, res) => {
-  const { query } = req.body;  // 获取请求中的查询词
-  if (!query) {
-    return res.status(400).send({ message: 'Query is required' });
-  }
-
-  // 简单的搜索逻辑：查找匹配的项目
-  const results = data.filter(item => item.name.toLowerCase().includes(query.toLowerCase()));
-  res.json(results);
-});
-
-// 启动服务器
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+// 启动服务
+app.listen(PORT, () => {
+  console.log(`✅ Server is running on http://localhost:${PORT}`);
 });
