@@ -1,11 +1,14 @@
 // app/page.tsx
-import React, { useState } from 'react';
+"use client";  // 添加这一行来标记文件为客户端组件
+
+import React, { useState } from 'react';  // 确保使用 React 和 useState
+import './globals.css';  // 引入全局样式
 
 export default function Page() {
   const [searchQuery, setSearchQuery] = useState('');
 
   const handleSearch = () => {
-    // 在这里处理搜索逻辑
+    // 这里处理搜索逻辑，可以进行 API 请求等操作
     console.log('Searching for:', searchQuery);
   };
 
@@ -19,7 +22,7 @@ export default function Page() {
           type="text"
           placeholder="请输入您的商务需求或合作机会，AI助手即刻为您服务！"
           value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
+          onChange={(e) => setSearchQuery(e.target.value)}  // 更新搜索框值
         />
         <button onClick={handleSearch}>搜索</button>
       </div>
