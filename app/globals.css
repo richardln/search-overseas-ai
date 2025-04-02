@@ -1,15 +1,33 @@
-/* app/globals.css */
+/* globals.css */
 
-/* 默认浅色模式 */
-body.light-mode {
+/* 日间模式默认样式 */
+body {
   background-color: white;
   color: black;
 }
 
-/* 深色模式 */
-body.dark-mode {
-  background-color: #121212;
-  color: white;
-}
+/* 深色模式下的样式 */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #121212;  /* 深色背景 */
+    color: white;  /* 白色文字 */
+  }
 
-/* 如果有其他特定样式需要调整，可以在这里增加 */
+  /* 更新输入框和按钮样式以提高可读性 */
+  input, textarea, button {
+    background-color: #333;  /* 深色背景 */
+    color: white;  /* 白色文字 */
+    border: 1px solid #555;  /* 较浅的边框颜色 */
+  }
+
+  /* 优化卡片和其他元素样式 */
+  .card {
+    background-color: #1e1e1e;  /* 深色卡片背景 */
+    border: 1px solid #333;  /* 边框颜色 */
+  }
+
+  /* 添加高对比度的链接样式 */
+  a {
+    color: #1e90ff;  /* 蓝色链接 */
+  }
+}
