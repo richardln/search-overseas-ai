@@ -35,8 +35,8 @@ export default function Page() {
 
   return (
     <main className="flex flex-col items-center justify-center min-h-screen px-4 py-8">
-      <h1 className="text-3xl font-bold mb-2">出海投资商务通AI智能搜索</h1>
-      <p className="text-sm text-gray-500 mb-6">（越南版，其他国家陆续开放中）</p>
+      <h1 className="text-3xl font-bold mb-2">出海通（越南）AI商务助手</h1>
+      <p className="text-sm text-gray-500 mb-6">（其他国家陆续开放中）</p>
       <div className="flex w-full max-w-xl gap-2 mb-6">
         <input
           className="flex-grow border border-gray-300 rounded px-4 py-2"
@@ -71,7 +71,7 @@ export default function Page() {
       {/* 如果没有数据 */}
       {response.length === 0 && !loading && (
         <div className="mt-6 max-w-xl w-full bg-white shadow p-4 border border-gray-200 rounded">
-          <p>欢迎使用“出海投资商务通AI智能搜索”平台。</p>
+          <p>欢迎使用“出海通AI商务助手”。</p>
           <p>我们致力于为企业提供智能化的海外市场拓展解决方案，</p>
           <p>帮助您快速找到合适的合作伙伴和行业资源。</p>
         </div>
