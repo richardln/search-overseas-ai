@@ -17,6 +17,7 @@ export default function Page() {
         body: JSON.stringify({ query }),
       });
       const data = await res.json();
+      console.log(data);  // 添加log，查看返回数据
 
       // 确保返回的数据是数组，如果是其他类型则处理为字符串或空数组
       if (Array.isArray(data.result)) {
@@ -74,5 +75,3 @@ export default function Page() {
     </main>
   );
 }
-
-
