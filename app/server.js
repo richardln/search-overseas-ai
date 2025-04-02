@@ -3,24 +3,26 @@ const fs = require('fs');
 const app = express();
 const port = 3000;
 
-// 读取并解析 JSON 数据
-const data = JSON.parse(fs.readFileSync('data.json', 'utf8'));
+// 解析 JSON 请求体
+app.use(express.json());
 
-// 简单的查询功能：根据行业和地点来筛选数据
-app.get('/search', (req, res) => {
-  const { industry, location } = req.query;
+// 读取数据
+const data = JSON.parse(fs.readFileSync('data.json', 'utf-8'));
 
-  if (!industry || !location) {
-    return res.status(400).json({ message: "Industry and Location are required" });
+// 根路由，测试服务器是否正常工作
+app.get('/', (req, res) => {
+  res.send('Server is running');
+});
+
+// 搜索路由，根据用户请求过滤数据
+app.post('/search', (req, res) => {
+  const { query } = req.body;  // 获取请求中的查询词
+  if (!query) {
+    return res.status(400).send({ message: 'Query is required' });
   }
 
-  // 根据行业和地点进行匹配
-  const results = data.filter(item => 
-    item.industry.toLowerCase().includes(industry.toLowerCase()) &&
-    item.location.toLowerCase().includes(location.toLowerCase())
-  );
-
-  // 返回结果
+  // 简单的搜索逻辑：查找匹配的项目
+  const results = data.filter(item => item.name.toLowerCase().includes(query.toLowerCase()));
   res.json(results);
 });
 
@@ -28,4 +30,3 @@ app.get('/search', (req, res) => {
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
-
