@@ -1,23 +1,21 @@
 import { NextResponse } from 'next/server';
 import OpenAI from 'openai';
 
-// 使用 BASE_URL 环境变量来设置请求的地址
-const BASE_URL = process.env.BASE_URL || 'https://api.bianxie.ai/v1';
-
 const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY || '',
-  baseUrl: BASE_URL,
+  apiKey: process.env.OPENAI_API_KEY || '', // 加默认值避免 undefined
 });
+
+const BASE_URL = process.env.BASE_URL || 'https://api.bianxie.ai'; // 中转API地址
 
 export async function POST(req: Request) {
   try {
     const body = await req.json();
     const query = body.query;
-
     if (!query) {
       return NextResponse.json({ result: '请提供查询内容。' }, { status: 400 });
     }
 
+    // 修改请求的url地址
     const completion = await openai.chat.completions.create({
       model: 'gpt-3.5-turbo', // 你可以根据需要选择其他模型
       messages: [
@@ -28,6 +26,7 @@ export async function POST(req: Request) {
         { role: 'user', content: query },
       ],
       temperature: 0.5,
+      baseUrl: BASE_URL, // 使用BASE_URL来指定请求的中转地址
     });
 
     const result = completion.choices[0]?.message?.content || '未找到相关内容。';
@@ -40,4 +39,3 @@ export async function POST(req: Request) {
     );
   }
 }
-
