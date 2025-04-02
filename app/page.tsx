@@ -45,7 +45,7 @@ export default function Page() {
       <div className="flex w-full max-w-xl gap-2 mb-6">
         <textarea
           className="flex-grow border border-gray-300 rounded px-4 py-2"
-          placeholder="请描述您的商务需求或者合作机会，AI助手即刻为您服务！"
+          placeholder="请简述您的商务需求或者合作机会，AI助手即刻为您服务！"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           rows={calculateRows(query)}  // 动态计算行数
