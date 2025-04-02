@@ -1,4 +1,6 @@
 // app/layout.tsx
+"use client";  // 添加这一行来标记文件为客户端组件
+
 import { Geist, Geist_Mono } from "next/font/google";
 import useTheme from './theme';  // 导入刚才创建的 useTheme
 import "./globals.css";
