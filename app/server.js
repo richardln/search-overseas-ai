@@ -1,4 +1,3 @@
-// server.js
 const express = require('express');
 const fs = require('fs');
 const app = express();
@@ -17,7 +16,7 @@ app.get('/search', (req, res) => {
   const query = req.query.q?.toLowerCase() || '';
   const data = loadData();
 
-  const results = data.filter(item =>
+  const results = data.results.filter(item =>
     item.name.toLowerCase().includes(query) ||
     item.type.toLowerCase().includes(query) ||
     item.description.toLowerCase().includes(query)
