@@ -1,29 +1,12 @@
 [
   {
-    "id": 1,
-    "name": "ABC 安防有限公司",
-    "industry": "安防",
-    "location": "胡志明市",
-    "service": "安防设备采购",
-    "description": "一家专注于安防设备采购和安装的公司。",
-    "contact": "email@abc.com"
+    "name": "越南平阳工业园区",
+    "type": "工业园区",
+    "description": "位于越南南部的高科技产业园，吸引大量中资企业"
   },
   {
-    "id": 2,
-    "name": "XYZ 工业园区",
-    "industry": "制造",
-    "location": "河内",
-    "service": "工业园区招商",
-    "description": "提供设备制造与工业园区招商服务。",
-    "contact": "contact@xyzpark.com"
-  },
-  {
-    "id": 3,
-    "name": "DEF 软件公司",
-    "industry": "软件开发",
-    "location": "胡志明市",
-    "service": "企业软件开发",
-    "description": "专注于定制化企业软件开发，提供高效的技术解决方案。",
-    "contact": "info@defsoftware.com"
+    "name": "VIET CONSULTING 企业咨询",
+    "type": "企业服务",
+    "description": "为中企出海越南提供法务、翻译与人才服务"
   }
 ]
