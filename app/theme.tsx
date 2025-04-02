@@ -1,6 +1,4 @@
 // app/theme.tsx
-"use client";  // 添加这一行来标记文件为客户端组件
-
 import { useEffect } from 'react';
 
 const useTheme = () => {
@@ -30,3 +28,4 @@ const useTheme = () => {
 };
 
 export default useTheme;
+
