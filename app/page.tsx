@@ -6,6 +6,12 @@ export default function Page() {
   const [response, setResponse] = useState<any[]>([]);  // 初始化为数组
   const [loading, setLoading] = useState(false);
 
+  // 计算文本框的行数
+  const calculateRows = (text: string) => {
+    const lineCount = text.split('\n').length;  // 根据换行符计算行数
+    return Math.max(1, lineCount);  // 最小行数为1
+  };
+
   const handleSearch = async () => {
     setLoading(true);
     try {
@@ -22,7 +28,6 @@ export default function Page() {
 
       // 确保返回的数据是数组，如果是其他类型则处理为字符串或空数组
       if (data.result) {
-        // 假设返回的是字符串或者数组，进行相应处理
         setResponse([{ name: '结果', description: data.result }]);  // 显示结果
       } else {
         setResponse([]);  // 如果没有结果，清空
@@ -38,12 +43,13 @@ export default function Page() {
       <h1 className="text-3xl font-bold mb-2">出海通AI商务助手</h1>
       <p className="text-sm text-gray-500 mb-6">（越南版，其他国家陆续开放中）</p>
       <div className="flex w-full max-w-xl gap-2 mb-6">
-       <textarea
-  className="flex-grow border border-gray-300 rounded px-4 py-2"
-  placeholder="例如：我是钛白粉的供应商，想找越南的当地的涂料企业..."
-  value={query}
-  onChange={(e) => setQuery(e.target.value)}
-  rows={4}  // 设置初始行数
+        <textarea
+          className="flex-grow border border-gray-300 rounded px-4 py-2"
+          placeholder="例如：我是钛白粉的供应商，想找越南的当地的涂料企业..."
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          rows={calculateRows(query)}  // 动态计算行数
+          style={{ resize: 'none' }}  // 禁止手动调整大小
         />
         <button
           onClick={handleSearch}
