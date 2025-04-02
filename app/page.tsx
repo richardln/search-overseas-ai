@@ -38,11 +38,12 @@ export default function Page() {
       <h1 className="text-3xl font-bold mb-2">出海通AI商务助手</h1>
       <p className="text-sm text-gray-500 mb-6">（越南版，其他国家陆续开放中）</p>
       <div className="flex w-full max-w-xl gap-2 mb-6">
-        <input
-          className="flex-grow border border-gray-300 rounded px-4 py-2"
-          placeholder="例如：我是钛白粉的供应商，想找越南的当地的涂料企业..."
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
+       <textarea
+  className="flex-grow border border-gray-300 rounded px-4 py-2"
+  placeholder="例如：我是钛白粉的供应商，想找越南的当地的涂料企业..."
+  value={query}
+  onChange={(e) => setQuery(e.target.value)}
+  rows={4}  // 设置初始行数
         />
         <button
           onClick={handleSearch}
