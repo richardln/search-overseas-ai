@@ -1,81 +1,26 @@
-/* globals.css */
+@import "tailwindcss";
 
-/* 搜索栏样式 */
-.search-section {
-  text-align: center;
-  padding: 20px;
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
 }
 
-.search-section h1 {
-  font-size: 36px;
-  font-weight: bold;
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
 }
 
-.search-section input {
-  width: 80%;
-  padding: 10px;
-  font-size: 16px;
-  margin-top: 10px;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
 }
 
-.search-section button {
-  padding: 10px 20px;
-  margin-top: 10px;
-  font-size: 16px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-.search-section button:hover {
-  background-color: #0056b3;
-}
-
-/* 新的板块样式 */
-.sections {
-  margin-top: 40px;
-  text-align: center;
-}
-
-.sections h2 {
-  font-size: 28px;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-.section-cards {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 20px;
-}
-
-.section-card {
-  width: 30%;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.section-card h3 {
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.section-card p {
-  font-size: 16px;
-  margin: 10px 0;
-}
-
-.section-card button {
-  padding: 10px 20px;
-  background-color: #28a745;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-.section-card button:hover {
-  background-color: #218838;
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
 }
