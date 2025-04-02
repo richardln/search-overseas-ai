@@ -1,8 +1,14 @@
 import { NextResponse } from 'next/server';
 import OpenAI from 'openai';
 
+// 使用新的 BASE_URL
+const BASE_URL = 'https://api.bianxie.ai/v1';  // 你可以根据需求选择不同的 URL
+const API_KEY = process.env.OPENAI_API_KEY || '';  // 从环境变量中获取 API Key
+
+// 初始化 OpenAI 客户端，使用新的 BASE_URL
 const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY || '', // 加默认值避免 undefined
+  apiKey: API_KEY, // 使用你的 API Key
+  baseURL: BASE_URL, // 使用新的 BASE_URL
 });
 
 export async function POST(req: Request) {
@@ -15,7 +21,7 @@ export async function POST(req: Request) {
     }
 
     const completion = await openai.chat.completions.create({
-      model: 'gpt-3.5-turbo',
+      model: 'gpt-3.5-turbo', // 根据你的权限选择模型
       messages: [
         {
           role: 'system',
