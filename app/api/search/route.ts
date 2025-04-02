@@ -21,7 +21,7 @@ export async function POST(req: Request) {
     }
 
     const completion = await openai.chat.completions.create({
-      model: 'gpt-3.5-turbo', // 根据你的权限选择模型
+      model: 'gpt-4o-mini', // 根据你的权限选择模型
       messages: [
         {
           role: 'system',
