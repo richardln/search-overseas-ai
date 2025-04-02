@@ -43,7 +43,7 @@ export default function Page() {
   placeholder="请简述您的商务需求或者合作机会，AI助手即刻为您服务！"
   value={query}
   onChange={(e) => setQuery(e.target.value)}
-  rows={4}  // 设置初始行数
+  rows={2}  // 设置初始行数
         />
         <button
           onClick={handleSearch}
