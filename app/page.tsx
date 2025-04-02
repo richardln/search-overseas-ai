@@ -9,7 +9,7 @@ export default function Page() {
   // 计算文本框的行数
   const calculateRows = (text: string) => {
     const lineCount = text.split('\n').length;  // 根据换行符计算行数
-    return Math.max(1, lineCount);  // 最小行数为1
+    return Math.min(5, Math.max(1, lineCount));  // 最小行数为1，最大行数为5
   };
 
   const handleSearch = async () => {
@@ -28,7 +28,7 @@ export default function Page() {
 
       // 确保返回的数据是数组，如果是其他类型则处理为字符串或空数组
       if (data.result) {
-        setResponse([{ name: '结果', description: data.result }]);  // 显示结果
+        setResponse([{ description: data.result }]);  // 显示结果
       } else {
         setResponse([]);  // 如果没有结果，清空
       }
@@ -49,7 +49,7 @@ export default function Page() {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           rows={calculateRows(query)}  // 动态计算行数
-          style={{ resize: 'none' }}  // 禁止手动调整大小
+          style={{ resize: 'none', width: '100%' }}  // 禁止手动调整大小，宽度100%
         />
         <button
           onClick={handleSearch}
