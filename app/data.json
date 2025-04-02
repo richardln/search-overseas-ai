@@ -1,1 +1,29 @@
-
+[
+  {
+    "id": 1,
+    "name": "ABC 安防有限公司",
+    "industry": "安防",
+    "location": "胡志明市",
+    "service": "安防设备采购",
+    "description": "一家专注于安防设备采购和安装的公司。",
+    "contact": "email@abc.com"
+  },
+  {
+    "id": 2,
+    "name": "XYZ 工业园区",
+    "industry": "制造",
+    "location": "河内",
+    "service": "工业园区招商",
+    "description": "提供设备制造与工业园区招商服务。",
+    "contact": "contact@xyzpark.com"
+  },
+  {
+    "id": 3,
+    "name": "DEF 软件公司",
+    "industry": "软件开发",
+    "location": "胡志明市",
+    "service": "企业软件开发",
+    "description": "专注于定制化企业软件开发，提供高效的技术解决方案。",
+    "contact": "info@defsoftware.com"
+  }
+]
