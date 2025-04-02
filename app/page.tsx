@@ -78,8 +78,7 @@ export default function Page() {
       {/* 如果没有数据 */}
       {response.length === 0 && !loading && (
         <div className="mt-6 max-w-xl w-full bg-white shadow p-4 border border-gray-200 rounded">
-          <p>欢迎使用“出海通AI商务助手”。</p>
-          <p>我们致力于为企业提供智能化的海外市场拓展解决方案，帮助您快速找到合适的合作伙伴和行业资源。</p>
+          <p>欢迎使用“出海通AI商务助手”！我们致力于为用户提供智能化的海外市场拓展解决方案，帮助您快速找到合适的商业伙伴和合作机会。</p>
         </div>
       )}
     </main>
