@@ -8,7 +8,7 @@ export default function Home() {
 
   const handleSearch = async () => {
     if (!query) return;
-    const res = await fetch(`http://localhost:3000/search?q=${encodeURIComponent(query)}`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3000'}/search?q=${encodeURIComponent(query)}`);
     const data = await res.json();
     setResults(data.results || []);
   };
