@@ -1,21 +1,33 @@
-Skip to content
-Richard's projects
-Richard's projects
+'use client';
+import { useState } from 'react';
 
-Hobby
+export default function Page() {
+  const [query, setQuery] = useState('');
+  const [response, setResponse] = useState<any[]>([]);  // 初始化为数组
+  const [loading, setLoading] = useState(false);
 
-search-overseas-ai
+  const handleSearch = async () => {
+    setLoading(true);
+    try {
+      const res = await fetch('/api/search', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ query }),
+      });
 
-6tag01l4q
+      const data = await res.json();
+      console.log(data);  // 添加log，查看返回数据
 
-Changelog
-Help
-Docs
-
-Source
-Output
-app/page.tsx
-
+      // 确保返回的数据是数组，如果是其他类型则处理为字符串或空数组
+      if (data.result) {
+        // 假设返回的是字符串或者数组，进行相应处理
+        setResponse([{ name: '结果', description: data.result }]);  // 显示结果
+      } else {
+        setResponse([]);  // 如果没有结果，清空
+      }
+    } catch (error) {
       setResponse([]);
     }
     setLoading(false);
@@ -65,5 +77,3 @@ app/page.tsx
     </main>
   );
 }
-search-overseas-ai – Deployment Source – Vercel
-23:07:40
