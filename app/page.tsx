@@ -35,8 +35,8 @@ export default function Page() {
 
   return (
     <main className="flex flex-col items-center justify-center min-h-screen px-4 py-8">
-      <h1 className="text-3xl font-bold mb-2">出海通（越南）AI商务助手</h1>
-      <p className="text-sm text-gray-500 mb-6">（其他国家陆续开放中）</p>
+      <h1 className="text-3xl font-bold mb-2">出海通AI商务助手</h1>
+      <p className="text-sm text-gray-500 mb-6">（越南版，其他国家陆续开放中）</p>
       <div className="flex w-full max-w-xl gap-2 mb-6">
         <input
           className="flex-grow border border-gray-300 rounded px-4 py-2"
