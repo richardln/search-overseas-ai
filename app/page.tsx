@@ -16,14 +16,16 @@ export default function Page() {
         },
         body: JSON.stringify({ query }),
       });
+
       const data = await res.json();
       console.log(data);  // 添加log，查看返回数据
 
       // 确保返回的数据是数组，如果是其他类型则处理为字符串或空数组
-      if (Array.isArray(data.result)) {
-        setResponse(data.result);
+      if (data.result) {
+        // 假设返回的是字符串或者数组，进行相应处理
+        setResponse([{ name: '结果', description: data.result }]);  // 显示结果
       } else {
-        setResponse([]);  // 如果不是数组，则清空结果
+        setResponse([]);  // 如果没有结果，清空
       }
     } catch (error) {
       setResponse([]);
