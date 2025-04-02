@@ -63,11 +63,10 @@ export default function Page() {
       {/* 搜索结果展示 */}
       {response.length > 0 && (
         <div className="mt-6 max-w-xl w-full bg-white shadow p-4 border border-gray-200 rounded">
-          <h2 className="font-bold text-xl mb-4">AI助手：</h2>
+          <h2 className="font-bold text-xl mb-4">AI商务助手：</h2>
           <div className="space-y-4">
             {response.map((item, index) => (
               <div key={index}>
-                <h3 className="font-semibold text-lg">{item.name}</h3>
                 <p>{item.description}</p>
               </div>
             ))}
